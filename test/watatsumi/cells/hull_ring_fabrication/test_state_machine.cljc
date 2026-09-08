@@ -1,6 +1,6 @@
 (ns watatsumi.cells.hull-ring-fabrication.test-state-machine
   "watatsumi 綿津見 hull-ring-fabrication state-machine cljc port + LIVE py↔clj deep parity."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
             [clojure.java.shell :refer [sh]]
             [cheshire.core :as json]
             [watatsumi.cells.hull-ring-fabrication.state-machine :as sm]))
@@ -27,5 +27,5 @@
                  :dir py-dir)]
       (if (not (zero? (:exit py)))
         (println "  [skip] python3 unavailable:" (:err py))
-        (is (= (json/parse-string (clojure.string/trim (:out py)))
+        (is (= (json/parse-string (kotoba.lang.text/trim (:out py)))
                (json/parse-string (json/generate-string (get (sm/run-chain start) "pressure_hull_attestation")))))))))

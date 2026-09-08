@@ -9,7 +9,7 @@
   oracle. Deviations in expected values are forbidden; only the Clojure test form wrapping
   changes."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [watatsumi.methods.agent :as agent]))
 
 ;; ── L1: hull ring fabrication ──

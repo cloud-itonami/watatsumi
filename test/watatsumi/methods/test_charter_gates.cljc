@@ -20,7 +20,7 @@
   Touches neither the no-server-key nor Murakumo-only (manifest G10) invariants."
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [cheshire.core :as json]))
 
 #?(:clj
@@ -53,7 +53,7 @@
 
 ;; ── N1 — naval weapons HARD-prohibited (the headline constitutional gate) ──
 (deftest n1-no-naval-weapons
-  (let [n1 (str/lower-case (str (get (nongoal-map) "N1")))]
+  (let [n1 (str/lower (str (get (nongoal-map) "N1")))]
     (is (str/includes? n1 "weapon")
         "N1: the first non-goal must prohibit naval weapons")))
 

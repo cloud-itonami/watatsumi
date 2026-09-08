@@ -1,7 +1,7 @@
 (ns watatsumi.methods.test-manifest-invariants
   "watatsumi — manifest invariants (ported; reads manifest.edn blob, jsonld retired)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str] [clojure.edn :as edn]))
+            [kotoba.lang.text :as str] [clojure.edn :as edn]))
 (def ^:private actor-dir (java.io.File. "."))
 (def ^:private lexdir (java.io.File. actor-dir "wire/lexicons"))
 (defn- manifest [] (:actor/manifest (edn/read-string (slurp (java.io.File. actor-dir "manifest.edn")))))
