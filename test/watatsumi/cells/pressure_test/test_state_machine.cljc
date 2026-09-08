@@ -2,7 +2,7 @@
   "watatsumi 綿津見 PressureTestCell (L5b) state-machine cljc port conformance +
   LIVE py↔clj deep parity (ADR-2606160842 port wave). The emitted record must be
   byte-identical to `cells/pressure_test/state_machine.py`."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
             [clojure.java.shell :refer [sh]]
             [cheshire.core :as json]
             [watatsumi.cells.pressure-test.state-machine :as sm]))
@@ -57,7 +57,7 @@
                  :dir py-dir)]
       (if (not (zero? (:exit py)))
         (println "  [skip] python3 unavailable — parity not re-checked this run:" (:err py))
-        (let [py-rec (json/parse-string (clojure.string/trim (:out py)))
+        (let [py-rec (json/parse-string (kotoba.lang.text/trim (:out py)))
               clj-rec (get (sm/run-chain start) "pressure_test_record")
               ;; round-trip cljc through cheshire so numeric types normalise identically
               clj-rec' (json/parse-string (json/generate-string clj-rec))]

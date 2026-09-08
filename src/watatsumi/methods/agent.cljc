@@ -26,7 +26,7 @@
   Note: handle-class-certification-binder fixes a Python syntax bug in the original
   (kotoba-datomic_cid was an invalid assignment target in Python); the semantic intent
   is preserved faithfully."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def TITHE-BPS 1000)
 (def DEPTH-CAP-M 6500)
@@ -72,7 +72,7 @@
       (assoc state "attestation" "FAIL_no_rings")
 
       (some (fn [p]
-              (let [pl (str/lower-case (str p))]
+              (let [pl (str/lower (str p))]
                 (some #(str/includes? pl %) forbidden)))
             pens)
       (assoc state "attestation" "FAIL_weapon_mount_detected")
@@ -96,7 +96,7 @@
 (defn handle-system-integration
   "L4: Propulsion (LFP/H₂/NH₃/methanol only; no nuclear), life support, sensors."
   [state]
-  (let [prop     (str/lower-case (str (get state "propulsion_type" "")))
+  (let [prop     (str/lower (str (get state "propulsion_type" "")))
         allowed  #{"lfp" "h2" "hydrogen" "nh3" "ammonia" "methanol" "fuel-cell"}
         sonar-db (long (get state "sonar_db" 0))]
     (cond
