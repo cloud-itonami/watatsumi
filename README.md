@@ -81,7 +81,7 @@ Charter Rider §2(a) + §2(d) + §2(g) + §1.13 + §1.15 constitutional anchors:
 - Mimi-marine (kuni-umi Mimi pressure-compensated)
 - Funamori (surface support / R3 mother-ship; ADR-2605242745 reuse)
 
-**Cable-laying fleet (ADR-2606012600)** — operational counterpart to **watatsuna 綿津綱** (world cable-network KG actor); see `data/cable-laying-fleet.kotoba.edn` + `CLAUDE.md`:
+**Cable-laying fleet (ADR-2606012600)** — operational counterpart to **watatsuna 綿津綱** (world cable-network KG actor); see `data/cable-laying-fleet.kotoba.edn` + `AGENTS.md`:
 | Class | Role | Phase |
 |---|---|---|
 | Tsuna-suki (綱鋤) | Towed sea plough / burial trencher (≤3 m, ≤2000 m) | R1+ |
@@ -129,4 +129,4 @@ Schema details deferred to R1 ADR.
 
 - `/90-docs/adr/2605252200-watatsumi-civilian-submersible-r0.md` — Master ADR
 - `/orgs/etzhayyim/com-etzhayyim-kuni-umi/README.md` — Funamori surface sibling
-- `/CLAUDE.md` — Religious-corp status table row 45
+- `/AGENTS.md` — Religious-corp status table row 45
